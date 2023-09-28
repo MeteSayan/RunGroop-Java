@@ -21,6 +21,7 @@
                                 name="title"
                                 th:field="*{title}"
                                 placeholder="Title">
+                        <!-- For title validation error -->
                         <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
                     </div>
                     <div class="form-group col-md-6">
@@ -32,6 +33,7 @@
                                 name="photoUrl"
                                 th:field="*{photoUrl}"
                                 placeholder="Photo Url">
+                        <!-- For photo url validation error -->
                         <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
                     </div>
                 </div>
@@ -44,6 +46,7 @@
                             name="content"
                             th:field="*{content}"
                             placeholder="1234 Main St">
+                    <!-- For content validation error -->
                     <p th:if="${#fields.hasErrors('content')}" class="text-danger" th:errors="*{content}"></p>
                 </div>
                 <button type="submit" class="btn btn-primary">Create</button>
