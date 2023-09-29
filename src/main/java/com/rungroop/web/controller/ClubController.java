@@ -3,7 +3,6 @@ package com.rungroop.web.controller;
 import com.rungroop.web.dto.ClubDto;
 import com.rungroop.web.models.Club;
 import com.rungroop.web.service.ClubService;
-import groovy.lang.GString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,7 @@ import java.util.List;
 
 @Controller
 public class ClubController {
-    private ClubService clubService;
+    private final ClubService clubService;
 
     @Autowired
     public ClubController(ClubService clubService) {
@@ -30,6 +29,13 @@ public class ClubController {
         List<ClubDto> clubs = clubService.findAllClubs();
         model.addAttribute("clubs", clubs);
         return "clubs-list";
+    }
+
+    @GetMapping("/clubs/{clubId}")
+    public String clubDetail(@PathVariable("clubId") long clubId, Model model){
+        ClubDto clubDto = clubService.findClubById(clubId);
+        model.addAttribute("club", clubDto);
+        return "clubs-detail";
     }
 
     @GetMapping("/clubs/new")
