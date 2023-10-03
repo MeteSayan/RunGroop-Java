@@ -29,7 +29,7 @@
                         <h2 class="card-title">About this running event</h2>
                         <p class="card-text" th:text="${event.type}"></p>
                         <a class="btn btn-primary">Delete</a>
-                        <a class="btn btn-primary">Edit</a>
+                        <a th:href="@{/events/{eventId}/edit(eventId=${event.id})}" class="btn btn-primary">Edit</a>
                     </div>
                 </div>
             </div>
